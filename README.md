@@ -17,6 +17,11 @@ I will probably use a large margin of error to pulse the MUX in the MSGEQ7 chip.
 
 Lab 4 was focused on implementing a softcore processor in the FPGA. I am hoping to use these skills for my A functionality requirement. I will need to create a digital filter to normalize the frequency bands. This should be easier to do with a processor at my disposal. The difficult part of this section will be instantiating the hardware to run the chip into the ISE design suite. 
 
+## Prelab
+
+- Submit project proposal to Capt Branchflower and get approval on Lesson 21
+- Start ordering parts through Mr. Evans
+
 ## Required Functionality
 
 Required functionality will require me to take in a line level signal, then output a graphical display of the peak voltage levels for the different frequency bands. In other words, I will be creating a Graphic Equalizer.
