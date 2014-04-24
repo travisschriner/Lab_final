@@ -43,3 +43,29 @@ A functionality should take in an audio signal at line level to the FPGA. It sho
 - Instantiate ROM that contains a pink noise signal
 - Create filters from pink noise
 - Filter incoming audio signal and output in real time
+
+## Grading
+
+
+| Prelab | **On-Time:** 0 ---- Check Minus ---- Check ---- Check Plus | | 10 | | BOC L21 |
+
+
+| Required Functionality | **On-Time** --------------------------------- **Late:** 1Day ---- 2Days ---- 3Days ---- 4+Days| | 50 | | COB L40 |
+
+
+| B Functionality | **On-Time** -------------------------------------------- **Late:** 1Day ---- 2Days ---- 3Days ---- 4+Days| | 10 | | COB L40 |
+
+
+| A Functionality | **On-Time** -------------------------------------------- **Late:** 1Day ---- 2Days ---- 3Days ---- 4+Days| | 5 | | COB L40 |
+
+
+| Use of Git / Github | **On-Time:** 0 -- Check Minus -- Check -- Check Plus -- **Late:** 1Day -- 2Days -- 3Days -- 4+Days| | 5 | | COB L40 |
+
+
+| Code Style | **On-Time:** 0 -- Check Minus -- Check -- Check Plus -- **Late:** 1Day -- 2Days -- 3Days -- 4+Days| | 5 | | COB L40 |
+
+
+| README | **On-Time:** 0 -- Check Minus -- Check -- Check Plus -- **Late:** 1Day -- 2Days -- 3Days -- 4+Days| | 25 | |COB L40 |
+
+
+| **Total** | | | **100** | | |
