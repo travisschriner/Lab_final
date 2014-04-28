@@ -27,7 +27,7 @@ end top_level_final;
 architecture behavioral of top_level_final is
 Signal red_s, green_s, blue_s, clock_s, h_sync, v_sync, v_completed, blank, pixel_clk, serialize_clk, serialize_clk_n : std_logic;
 signal row, column : unsigned(10 downto 0);
-signal red, green, blue : std_logic_vector (7 downto 0);
+signal red, green, blue, hz_63, hz_160, hz_400, khz_1, khz_2_5, khz_6_25, khz_16 : std_logic_vector (7 downto 0);
 
 
 begin
@@ -75,8 +75,14 @@ begin
 			port map ( 	row      => row,
 							column   => column,
 							blank    => blank,
-							SW0      => SW0,
-							SW1		=> SW1,
+							v_completed => v_completed,
+							hz_63    => hz_63,
+			            hz_160   => hz_160,
+			            hz_400   => hz_400,
+			            khz_1    => khz_1,
+			            khz_2_5  => khz_2_5,
+			            khz_6_25 => khz_6_25,
+			            khz_16   => khz_16,
 							r        => red,
 							g        => green,
 					 		b        => blue
