@@ -74,3 +74,17 @@ A functionality should take in an audio signal at line level to the FPGA. It sho
 
 
 | **Total** | | | **100** | | |
+
+
+
+## Design
+
+In order to interface the MSGEQ7 chip with my Atlys board, I must take a DC signal and convert it to an unsigned signal. This requires the use of an analog to digital converter (ADC). Fortunately, there is one built into the chip. it is the LM4550 AC-97 audio codec chip created my National Semiconductors. The diagram is as follows:
+
+![AC-97 Diagram](audio_wiring.JPG)
+
+The signals needed for the chip are explained below:
+
+![AC-97 Signals](audio_signal_description.JPG)
+
+I will utilize the datasheet of the LM4550 chip to create the signals required to operate it. 
