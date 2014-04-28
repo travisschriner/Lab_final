@@ -11,3 +11,10 @@ system.make
 system.mhs
 system.xmp
 system_incl.make
+*.lso
+*.prj
+*.stx
+*.xst
+final/xst/
+Atlys_AC97_EDK_demo/
+final/AtlysGeneral.ucf
