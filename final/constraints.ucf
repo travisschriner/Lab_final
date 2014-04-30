@@ -15,3 +15,10 @@ NET "TMDS(2)"   LOC = "B8" | IOSTANDARD = TMDS_33 ; # Green
 NET "TMDSB(2)"  LOC = "A8" | IOSTANDARD = TMDS_33 ;
 NET "TMDS(3)"   LOC = "B6" | IOSTANDARD = TMDS_33 ; # Clock
 NET "TMDSB(3)"  LOC = "A6" | IOSTANDARD = TMDS_33 ;
+
+# Audio
+ NET "BITCLK"   LOC = "L13"; # Bank = 1, Pin name = IO_L40N_GCLK10_M1A6, Sch name = AUD-BIT-CLK
+ NET "AUDSDI"   LOC = "T18"; # Bank = 1, Pin name = IO_L51N_M1DQ13,      Sch name = AUD-SDI
+ NET "AUDSDO"   LOC = "N16"; # Bank = 1, Pin name = IO_L50N_M1UDQSN,     Sch name = AUD-SDO
+ NET "AUDSYNC"  LOC = "U17"; # Bank = 1, Pin name = IO_L52P_M1DQ14,      Sch name = AUD-SYNC
+ NET "AUDRST"   LOC = "T17"; # Bank = 1, Pin name = IO_L51P_M1DQ12,      Sch name = AUD-RESET

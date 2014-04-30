@@ -17,8 +17,7 @@ entity top_level_final is
     port ( 
              clk   : in  std_logic; -- 100 MHz
              reset : in  std_logic;
-				 SW0   : in STD_LOGIC;
-				 SW1	 : in STD_LOGIC;
+				 
              tmds  : out std_logic_vector(3 downto 0);
              tmdsb : out std_logic_vector(3 downto 0)
          );
