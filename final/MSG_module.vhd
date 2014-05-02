@@ -31,7 +31,21 @@ end MSG_module;
 
 architecture Behavioral of MSG_module is
 
+signal count, count_next : unsigned;
+
 begin
+
+count_next <= count + 1 when (count < 5000) else 0;
+
+process (clk, reset)
+begin
+	if(reset) then
+			count <= 0;
+	elsif(clk_event(rising_edge)) then
+		count <= count_next;
+		end if;
+end process;
+	
 
 
 end Behavioral;
