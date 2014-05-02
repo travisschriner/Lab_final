@@ -16,9 +16,10 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity MSG_module is
-    Port ( clk     : in  STD_LOGIC;
-           reset   : in  STD_LOGIC;
-           JB      : in  STD_LOGIC_VECTOR (7 downto 0);
+    Port ( clk     : in   STD_LOGIC;
+           reset   : in   STD_LOGIC;
+           JB      : in   STD_LOGIC_VECTOR (7 downto 0);
+			  pulse	 : out  STD_LOGIC;
            hz63    : out  STD_LOGIC_VECTOR (7 downto 0);
            hz160   : out  STD_LOGIC_VECTOR (7 downto 0);
            hz400   : out  STD_LOGIC_VECTOR (7 downto 0);
