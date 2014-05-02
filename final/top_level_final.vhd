@@ -17,7 +17,7 @@ entity top_level_final is
     port ( 
              clk   : in  std_logic; -- 100 MHz
              reset : in  std_logic;
-				 
+				 JB	 : in  std_logic;
              tmds  : out std_logic_vector(3 downto 0);
              tmdsb : out std_logic_vector(3 downto 0)
          );
@@ -40,7 +40,7 @@ begin
                )
     port map(
                 clkin => clk,
-                rst   => reset,
+                rst   => reset, 
                 clkfx => pixel_clk
             );
 
