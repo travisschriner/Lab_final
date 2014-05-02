@@ -17,7 +17,7 @@ entity top_level_final is
     port ( 
              clk   : in  std_logic; -- 100 MHz
              reset : in  std_logic;
-				 JB	 : in  std_logic;
+				 JB	 : inout  std_logic_vector(7 downto 0);
              tmds  : out std_logic_vector(3 downto 0);
              tmdsb : out std_logic_vector(3 downto 0)
          );
@@ -26,7 +26,8 @@ end top_level_final;
 architecture behavioral of top_level_final is
 Signal red_s, green_s, blue_s, clock_s, h_sync, v_sync, v_completed, blank, pixel_clk, serialize_clk, serialize_clk_n : std_logic;
 signal row, column : unsigned(10 downto 0);
-signal red, green, blue, hz_63, hz_160, hz_400, khz_1, khz_2_5, khz_6_25, khz_16 : std_logic_vector (7 downto 0);
+signal red, green, blue : std_logic_vector (7 downto 0); 
+signal hz_63, hz_160, hz_400, khz_1, khz_2_5, khz_6_25, khz_16 : unsigned (7 downto 0);
 
 
 begin
@@ -86,6 +87,21 @@ begin
 							g        => green,
 					 		b        => blue
 						);
+						
+		inst_MSG_module: entity work.MSG_module
+		port map(
+						clk			=> clk,
+						reset			=> reset,
+						JB				=> JB,
+						pulse			=> JB(7),
+						hz63			=> hz_63,
+						hz160			=> hz_160,
+						hz400			=> hz_400,
+						khz1    		=> khz_1,
+			         khz2_5  		=> khz_2_5,
+			         khz6_25 		=> khz_6_25,
+			         khz16   		=> khz_16
+				);
 
 
    
@@ -107,6 +123,8 @@ begin
                 blue_s    => blue_s,
                 clock_s   => clock_s
             );
+				
+		
 
     -- Output the HDMI data on differential signalling pins
     OBUFDS_blue  : OBUFDS port map

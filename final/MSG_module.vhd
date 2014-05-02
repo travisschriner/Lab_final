@@ -20,13 +20,13 @@ entity MSG_module is
            reset   : in   STD_LOGIC;
            JB      : in   STD_LOGIC_VECTOR (7 downto 0);
 			  pulse	 : out  STD_LOGIC;
-           hz63    : out  STD_LOGIC_VECTOR (7 downto 0);
-           hz160   : out  STD_LOGIC_VECTOR (7 downto 0);
-           hz400   : out  STD_LOGIC_VECTOR (7 downto 0);
-           khz1    : out  STD_LOGIC_VECTOR (7 downto 0);
-           khz2_5  : out  STD_LOGIC_VECTOR (7 downto 0);
-           khz6_25 : out  STD_LOGIC_VECTOR (7 downto 0);
-           khz16   : out  STD_LOGIC_VECTOR (7 downto 0));
+           hz63    : out  unsigned (7 downto 0);
+           hz160   : out  unsigned (7 downto 0);
+           hz400   : out  unsigned (7 downto 0);
+           khz1    : out  unsigned (7 downto 0);
+           khz2_5  : out  unsigned (7 downto 0);
+           khz6_25 : out  unsigned (7 downto 0);
+           khz16   : out  unsigned (7 downto 0));
 end MSG_module;
 
 architecture Behavioral of MSG_module is
