@@ -10,10 +10,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library UNISIM;
+use UNISIM.VComponents.all;
 
 entity MSG_module is
     Port ( clk     : in   STD_LOGIC;
@@ -31,21 +29,99 @@ end MSG_module;
 
 architecture Behavioral of MSG_module is
 
-signal count, count_next : unsigned;
+type eq_state is (h63, h160, h400, k1, k25, k625, k16);
+signal state, state_next : eq_state;
+signal count, count_next : unsigned (12 downto 0);
+signal next_63, next_160, next_400, next_1, next_25, next_625, next_16: unsigned (7 downto 0);
+signal cur_63, cur_160, cur_400, cur_1, cur_25, cur_625, cur_16: unsigned (7 downto 0);
+signal pls : std_logic;
 
 begin
 
-count_next <= count + 1 when (count < 5000) else 0;
+	count_next <= count + 1 when (count < 5000) else (others => '0');
+	pulse <= '1' when count = 0 else '0';
+	pls <= '1' when count = 0 else '0';
 
-process (clk, reset)
-begin
-	if(reset) then
-			count <= 0;
-	elsif(clk_event(rising_edge)) then
-		count <= count_next;
+	process (clk, reset)
+	begin
+		if(reset = '1') then
+			count <= (others => '0');
+			state <= h63;
+		elsif(rising_edge(clk)) then
+			count <= count_next;
+			state <= state_next;
 		end if;
-end process;
+	end process;
 	
+	process (clk, reset)
+	begin
+		if(reset = '1') then
+			cur_63 <= (others => '0');
+			cur_160 <= (others => '0');
+			cur_400 <= (others => '0');
+			cur_1 <= (others => '0');
+			cur_25 <= (others => '0');
+			cur_625 <= (others => '0');
+			cur_16 <= (others => '0');
+		elsif(rising_edge(clk)) then
+			cur_63 <= next_63;
+			cur_160 <= next_160;
+			cur_400 <= next_400;
+			cur_1 <= next_1;
+			cur_25 <= next_25;
+			cur_625 <= next_625;
+			cur_16 <= next_16;
+			
+		end if;
+	end process;
+	
+--======================================================
+------------------NEXT-STATE-LOGIC----------------------
+--======================================================
+	
+	process (pls, state, state_next)
+	begin
+		if (pls = '1') then
+			
+			case state is
+			
+				when h63 =>
+					next_63 <= unsigned(JB);
+					state_next <= h160;
+						
+				when h160 =>
+					next_160 <= unsigned(JB);
+					state_next <= h400;
+			
+				when h400 =>
+					next_400 <= unsigned(JB);
+					state_next <= k1;
+							
+				when k1 =>
+					next_1 <= unsigned(JB);
+					state_next <= k25;
+				
+				when k25 =>
+					next_25 <= unsigned(JB);
+					state_next <= k625;
+					
+				when k625 =>
+					next_625 <= unsigned(JB);
+					state_next <= k16;
+				
+				when k16 =>
+					next_16 <= unsigned(JB);
+					state_next <= h63;				
+				
+
+					
+				
+				
+			end case;
+		end if;
+	end process;
+					
+
 
 
 end Behavioral;
