@@ -38,7 +38,7 @@ signal pls : std_logic;
 
 begin
 
-	count_next <= count + 1 when (count < 5000) else (others => '0');
+	count_next <= count + 1 when (count < 500) else (others => '0');
 	pulse <= '1' when count = 0 else '0';
 	pls <= '1' when count = 0 else '0';
 
@@ -121,8 +121,18 @@ begin
 		end if;
 	end process;
 					
-
-
+--======================================================
+----------------------OUTPUT-LOGIC----------------------
+--======================================================
+	hz63    <= cur_63;  
+   hz160   <= cur_160;
+   hz400   <= cur_400;
+   khz1    <= cur_1;
+   khz2_5  <= cur_25;
+   khz6_25 <= cur_625;
+   khz16   <= cur_16;
+			  
+			  
 
 end Behavioral;
 
