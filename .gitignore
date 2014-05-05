@@ -19,5 +19,13 @@ final/xst/
 Atlys_AC97_EDK_demo/
 final/AtlysGeneral.ucf
 BB impact form.doc
-*.cmd_log
+*.cmd_lol
 *.tfi
+*.exe
+*.wdb
+*.log
+*.cmd
+*.xmsgs
+final/isim/
+*.ini
+*.cmd_log
