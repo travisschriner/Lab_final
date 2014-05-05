@@ -86,32 +86,47 @@ begin
 			case state is
 			
 				when h63 =>
+				
 					next_63 <= unsigned(JB);
-					state_next <= h160;
+					if (pls = '1') then
+						state_next <= h160;
+					end if;
 						
 				when h160 =>
 					next_160 <= unsigned(JB);
-					state_next <= h400;
+					if (pls = '1') then
+						state_next <= h400;
+					end if;
 			
 				when h400 =>
 					next_400 <= unsigned(JB);
-					state_next <= k1;
+					if (pls = '1') then
+						state_next <= k1;
+					end if;
 							
 				when k1 =>
 					next_1 <= unsigned(JB);
-					state_next <= k25;
+					if (pls = '1') then
+						state_next <= k25;
+					end if;
 				
 				when k25 =>
 					next_25 <= unsigned(JB);
-					state_next <= k625;
+					if (pls = '1') then
+						state_next <= k625;
+					end if;
 					
 				when k625 =>
 					next_625 <= unsigned(JB);
-					state_next <= k16;
+					if (pls = '1') then
+						state_next <= k16;
+					end if;
 				
 				when k16 =>
 					next_16 <= unsigned(JB);
-					state_next <= h63;				
+					if (pls = '1') then
+						state_next <= h63;
+					end if;				
 				
 
 					
