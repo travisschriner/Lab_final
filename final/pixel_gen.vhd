@@ -38,8 +38,14 @@ signal h63, h160, h400, h1, h25, h625, h16 : unsigned;
 begin
 
 h63 <= (480/hz_63)*480;
+h160 <= (480/hz_160)*480;
+h400 <= (480/hz_400)*480;
+h1 <= (480/khz_1)*480;
+h25 <= (480/khz_2_5)*480;
+h625 <= (480/khz_6_25)*480;
+h16 <= (480/khz_16)*480;
 
-process(row, blank, column, hz_63, hz_160, hz_400, khz_1, khz_2_5, khz_6_25, khz_16)
+process(row, blank, column, h63, h160, h400, h1, h25, h625, h16)
 	begin
 
 			r <= (others => '0');
