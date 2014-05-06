@@ -32,8 +32,75 @@ entity pixel_gen is
 end pixel_gen;
 
 architecture Behavioral of pixel_gen is
+signal r_sig, g_sig, b_sig : std_logic_vector(7 downto 0);
+signal h63, h160, h400, h1, h25, h625, h16 : unsigned;
 
 begin
+
+h63 <= (480/hz_63)*480;
+
+process(row, blank, column, hz_63, hz_160, hz_400, khz_1, khz_2_5, khz_6_25, khz_16)
+	begin
+
+			r <= (others => '0');
+			g <= (others => '0');
+			b <= (others => '0');
+
+		if(blank = '0') then
+
+			
+			--63 Hz
+			if(column >52 and row <(480-h63) and column <102) then
+				b <= (others => '1');
+				r <= (others => '0');
+				g <= (others => '0');
+			end if; 
+			
+			--160 Hz
+			if(column >133 and row <(480-h160) and column <183) then
+				b <= (others => '1');
+				r <= (others => '0');
+				g <= (others => '0');
+			end if; 
+		
+			--400 Hz
+			if(column >214 and row <(480-h400) and column <264) then
+				b <= (others => '1');
+				r <= (others => '0');
+				g <= (others => '0');
+			end if; 
+		 
+			--1 KHz
+			if(column >295 and row <(480-h1) and column <345) then
+				b <= (others => '1');
+				r <= (others => '0');
+				g <= (others => '0');
+			end if; 
+			
+			--2.5 KHz
+			if(column >376 and row <(480-h25) and column <426) then
+				b <= (others => '1');
+				r <= (others => '0');
+				g <= (others => '0');
+			end if; 
+			
+			--6.25 KHz
+			if(column >457 and row <(480-h625) and column <507) then
+				b <= (others => '1');
+				r <= (others => '0');
+				g <= (others => '0');
+			end if; 
+			
+			--16 KHz
+			if(column >538 and row <(480-h16) and column <588) then
+				b <= (others => '1');
+				r <= (others => '0');
+				g <= (others => '0');
+			end if; 
+	
+
+		end if;
+	end process;
 
 
 end Behavioral;
