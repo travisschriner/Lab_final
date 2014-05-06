@@ -79,12 +79,14 @@ A functionality should take in an audio signal at line level to the FPGA. It sho
 
 ## Design
 
-In order to interface the MSGEQ7 chip with my Atlys board, I must take a DC signal and convert it to an unsigned signal. This requires the use of an analog to digital converter (ADC). Fortunately, there is one built into the chip. it is the LM4550 AC-97 audio codec chip created my National Semiconductors. The diagram is as follows:
+In order to interface the MSGEQ7 chip with my Atlys board, I must take a DC signal and convert it to an unsigned signal. This requires the use of an analog to digital converter (ADC). Unfortunately, there is not one built into the chip. There is one that is located in the audio codex, but it is unusable for my purpose. Because of that, I had to use an off board ADC. I will utilize the ADC0803LCN ADC in a free running connection wiring. the diagram for the wiring is as follows:
 
-![AC-97 Diagram](audio_wiring.JPG)
+![free running connection](ADC_free-running_connection_schematic.JPG)
 
-The signals needed for the chip are explained below:
+I will run this chip into my board. I am running through the Vmod 8 GPIO connection onboard the ATLYS. I need one out for pulse and the rest will be in. I will place the pulse on the LSB and will make the entire port an inout. That way, when I read from the port, I can read all 8 bits. Though the LSB wont always be accurate, it doesnt matter because my resolution is not that precise.
 
-![AC-97 Signals](audio_signal_description.JPG)
+## Debug
 
-I will utilize the datasheet of the LM4550 chip to create the signals required to operate it. 
+I created the hardware for running my MSGEQ7 chip, however during the testing phase, I am setting two inputs at a time instead of one. I am not sure why.
+
+![MSG_Module_testbench](MSG_module_testbench.JPG)
