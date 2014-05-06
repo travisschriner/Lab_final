@@ -93,7 +93,7 @@ begin
 						clk			=> clk,
 						reset			=> reset,
 						JB				=> JB,
-						pulse			=> JB(7),
+						pulse			=> JB(0), --LSB
 						hz63			=> hz_63,
 						hz160			=> hz_160,
 						hz400			=> hz_400,

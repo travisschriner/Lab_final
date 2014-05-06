@@ -33,17 +33,53 @@ end pixel_gen;
 
 architecture Behavioral of pixel_gen is
 signal r_sig, g_sig, b_sig : std_logic_vector(7 downto 0);
-signal h63, h160, h400, h1, h25, h625, h16 : unsigned;
+signal h63, h160, h400, h1, h25, h625, h16 : unsigned (7 downto 0);
 
 begin
 
-h63 <= (480/hz_63)*480;
-h160 <= (480/hz_160)*480;
-h400 <= (480/hz_400)*480;
-h1 <= (480/khz_1)*480;
-h25 <= (480/khz_2_5)*480;
-h625 <= (480/khz_6_25)*480;
-h16 <= (480/khz_16)*480;
+	inst_LUT_63 : entity work.LUT(behavioral)
+	port map(
+				 val    => hz_63,
+				 level  => h63
+				);
+				
+	inst_LUT_160 : entity work.LUT(behavioral)
+	port map(
+				 val    => hz_160,
+				 level  => h160
+				);
+	
+	inst_LUT_400 : entity work.LUT(behavioral)
+	port map(
+				 val    => hz_400,
+				 level  => h400
+				);
+				
+	inst_LUT_1k : entity work.LUT(behavioral)
+	port map(
+				 val    => khz_1,
+				 level  => h1
+				);
+				
+	inst_LUT_15k : entity work.LUT(behavioral)
+	port map(
+				 val    => khz_2_5,
+				 level  => h25
+				);
+				
+	inst_LUT_625k : entity work.LUT(behavioral)
+	port map(
+				 val    => khz_6_25,
+				 level  => h625
+				);
+				
+	inst_LUT_16k : entity work.LUT(behavioral)
+	port map(
+				 val    => khz_16,
+				 level  => h16
+				);
+
+
 
 process(row, blank, column, h63, h160, h400, h1, h25, h625, h16)
 	begin
