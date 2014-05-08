@@ -90,3 +90,6 @@ I will run this chip into my board. I am running through the Vmod 8 GPIO connect
 I created the hardware for running my MSGEQ7 chip, however during the testing phase, I am setting two inputs at a time instead of one. I am not sure why.
 
 ![MSG_Module_testbench](MSG_module_testbench.JPG)
+
+
+![top level block diagram](top_level_block.JPG)
