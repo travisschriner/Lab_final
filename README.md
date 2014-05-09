@@ -91,5 +91,12 @@ I created the hardware for running my MSGEQ7 chip, however during the testing ph
 
 ![MSG_Module_testbench](MSG_module_testbench.JPG)
 
+during the testing phase, my design was very succeptible to noise. I realized after I started disassembling everything that the logic analizer was messing things up. I utilized a DMM and a logic probe to test functionality on my off board stuff. 
+
+## conclusion
+
+This is my final top level block diagram for my project:
 
 ![top level block diagram](top_level_block.JPG)
+
+I learned that getting a project together is difficult if you dont get all the elements you need before you start. I spent a lot of time twittling my thumbs waiting on parts to get in. It was poor preperation on my part... but Dr. Frankenstein had it figured out! he gathered the tools needed to make life around him and then proceeded. Frankenstein most likely would not have survived if he tried to make life, got halfway though it, and realized he needed an ADC...The code was not difficult, getting the stuff to fit together and interface properly was.
